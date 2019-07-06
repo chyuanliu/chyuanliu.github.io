@@ -4,18 +4,17 @@
 <p>date: 2019-07-06</p>
 <hr>
 <h4 id="1-绝对路径"><a href="#1-绝对路径" class="headerlink" title="1 绝对路径"></a>1 绝对路径</h4><p>绝对路径的书写必须要从盘符开始，其中Windows电脑和Mac(Linux)稍有区别。比如看下图中一个文件，那他的绝对路径是不是就是<code>E: \all_files\app\newfiles.txt</code>，关于这个斜杠是<code>/</code>还是<code>\</code>先忽视。</p>
-<img src="绝对路径1.png">
-
+<p><img src="/images/%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%841.png" alt></p>
 <p>这是我们windows电脑，绝对路径必须要从盘符开始，盘符就是你的<code>C D E F</code>盘，也就是windows电脑中绝对路径的开头必须是这么开头的<code>C:</code>或<code>D:</code>等等，同理如果E F盘也这样。</p>
 <p><strong>[如果用的是windows，可以忽略下面的mac部分]</strong>那Mac(Linux)中呢，是不分盘符的，所有绝对路径都从根文件开始，也就是<code>/</code> ，如图所示，这是一台Linux云主机。<code>debug</code>文件夹的绝对路径就是<code>/usr/src/debug</code>。</p>
-<img src="绝对路径2.png">
+<img src="/2019/07/06/相对路径和绝对路径/绝对路径2.png">
 
 <p>这是我们的绝对路径，比较简单。</p>
 <h4 id="2-相对路径"><a href="#2-相对路径" class="headerlink" title="2 相对路径"></a>2 相对路径</h4><p>在说相对路径之前，老师给大家举个例子。</p>
 <p>现在老师在北京，如果一个美国的朋友给老师发快递，那地址是不是要写成<code>中国北京市海淀区大钟寺街道中鼎大厦</code>，对吧。那如果你们要给老师发快递，那地址是不是就写成<code>北京市海淀区大钟寺街道中鼎大厦</code>。这样就可以了吧，没必要加中国了对吧。这是为什么呢，因为我们都在中国。</p>
 <p>好了，我们回到正题。</p>
 <p>我们来看一下，下面的这个文件目录。图中圆角矩形代表文件夹，横线代表文件。</p>
-<img src=".\images\相对路径1.png">
+<img src="/2019/07/06/相对路径和绝对路径/images\相对路径1.png">
 
 <p>我们如果想在<code>01.py</code>文件中，加载enemy.png图片的话，用<strong><em>绝对路径</em></strong>，代码是不是如下所示呢？</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enemy=pygame.image.load(&quot;C/Users/chyuanliu/python_code/01/images/enemy.png&quot;)</span><br></pre></td></tr></table></figure>
@@ -30,7 +29,7 @@
 <hr>
 <hr>
 <p>那老师现在考你们一个题，如果我想在<code>02文件夹</code>中的<code>02.py</code>中加载<code>enemy.png</code>，代码该怎么写。</p>
-<img src=".\images\相对路径2.png">
+<img src="/2019/07/06/相对路径和绝对路径/images\相对路径2.png">
 
 <p>看一下这个答案，你们觉得对不对?</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enemy=pygame.image.load(&quot;./01/images01/enemy.png&quot;)</span><br></pre></td></tr></table></figure>
@@ -44,10 +43,10 @@
 <hr>
 <hr>
 <p>在课堂上，我们的皙琳同学说，绝对路径这么长，我直接把<code>enemy.png</code>移动到前面不就行了。如图所示：</p>
-<img src=".\images\路径1.png">
+<img src="/2019/07/06/相对路径和绝对路径/images\路径1.png">
 
 <p>那是不是就变成了</p>
-<img src=".\images\路径2.png">
+<img src="/2019/07/06/相对路径和绝对路径/images\路径2.png">
 
 <p>如果这种情况，在<code>02.py</code>中加载<code>enemy.png</code>绝对路径代码是不是就是</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enemy=pygame.image.load(&quot;C/Users/enemy.png&quot;)</span><br></pre></td></tr></table></figure>
