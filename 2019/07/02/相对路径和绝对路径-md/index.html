@@ -1,0 +1,44 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>相对路径和绝对路径 | 教学沉思录</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">相对路径和绝对路径</h1><a id="logo" href="/.">教学沉思录</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Start</i></a><a href="/archives/"><i class="fa fa-archive"> Archiv</i></a><a href="/about/"><i class="fa fa-user"> Über</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">相对路径和绝对路径</h1><div class="post-meta">Jul 2, 2019</div><div class="post-content"><h4 id="1-绝对路径"><a href="#1-绝对路径" class="headerlink" title="1 绝对路径"></a>1 绝对路径</h4><p>绝对路径的书写必须要从盘符开始，其中Windows电脑和Mac(Linux)稍有区别。比如看下图中一个文件，那他的绝对路径是不是就是<code>E: \all_files\app\newfiles.txt</code>，关于这个斜杠是<code>/</code>还是<code>\</code>先忽视。</p>
+<p><img src="/2019/07/02/相对路径和绝对路径-md/%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%841.png" alt></p>
+<p>这是我们windows电脑，绝对路径必须要从盘符开始，盘符就是你的<code>C D E F</code>盘，也就是windows电脑中绝对路径的开头必须是这么开头的<code>C:</code>或<code>D:</code>等等，同理如果E F盘也这样。</p>
+<p><strong>[如果用的是windows，可以忽略下面的mac部分]</strong>那Mac(Linux)中呢，是不分盘符的，所有绝对路径都从根文件开始，也就是<code>/</code> ，如图所示，这是一台Linux云主机。<code>debug</code>文件夹的绝对路径就是<code>/usr/src/debug</code>。</p>
+<p><img src="/2019/07/02/相对路径和绝对路径-md/%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%842.png" alt></p>
+<p>这是我们的绝对路径，比较简单。</p>
+<h4 id="2-相对路径"><a href="#2-相对路径" class="headerlink" title="2 相对路径"></a>2 相对路径</h4><p>在说相对路径之前，老师给大家举个例子。</p>
+<p>现在老师在北京，如果一个美国的朋友给老师发快递，那地址是不是要写成<code>中国北京市海淀区大钟寺街道中鼎大厦</code>，对吧。那如果你们要给老师发快递，那地址是不是就写成<code>北京市海淀区大钟寺街道中鼎大厦</code>。这样就可以了吧，没必要加中国了对吧。这是为什么呢，因为我们都在中国。</p>
+<p>好了，我们回到正题。</p>
+<p>我们来看一下，下面的这个文件目录。图中圆角矩形代表文件夹，横线代表文件。</p>
+<p><img src="/2019/07/02/相对路径和绝对路径-md/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%841.png" alt></p>
+<p>我们如果想在<code>01.py</code>文件中，加载enemy.png图片的话，用<strong><em>绝对路径</em></strong>，代码是不是如下所示呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enemy=pygame.image.load(&quot;C/Users/chyuanliu/python_code/01/images/enemy.png&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>上文中，我们说了windows中，绝对路径必须从盘符开始的。</p>
+<p>那相对路径呢？相对路径就是从<strong><em>要加载图片的文件去找被加载图片！</em></strong></p>
+<p>我们看，如何从<code>01.py</code>文件找到<code>enemy.png</code>文件，<code>01.py</code>文件和<code>images</code>文件夹同在<code>01</code>文件夹内，<code>enemy.png</code>在<code>images</code>文件夹内。那在<code>01.py</code>中加载图片，相对路径是不是就可以理解为<code>01.py</code>所在<code>01</code>文件夹里面内的<code>images文件夹</code>里面的<code>enemy.png</code>，代码就是<code>./images/enemy.png</code>或<code>images/enemy.png</code>。</p>
+<p><code>./</code>意思就是<code>01.py</code>文件的当前目录下，也就是<code>01</code>文件夹对不对，那就是在<code>01</code>文件夹内的<code>images</code>文件里的<code>enemy.png</code>。这就是从<code>01.py</code>到<code>enemy.png</code>的路对不对？</p>
+<p>那总结一下，相对路径就是<strong><em>从要加载图片的文件去找被加载的图片</em></strong>，也就是从<code>01.py</code>的位置去找<code>enemy.png</code>。</p>
+<p>绝大多数情况下，你要加载资源的代码文件和被加载的资源所在的文件夹是在一个目录下的。就像上图中这样的关系。那还有一种情况，这种情况也有，但是用的不多。</p>
+<p>那老师现在考你们一个题，如果我想在<code>02文件夹</code>中的02.py<code>中加载</code>enemy.png`，代码该怎么写。</p>
+<p><img src="/2019/07/02/相对路径和绝对路径-md/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%842.png" alt></p>
+<p>看一下这个答案，你们觉得对不对?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enemy=pygame.image.load(&quot;./01/images01/enemy.png&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>我们一起来分析一下。</p>
+<p>这个代码的意思是当前文件夹里面的<code>01文件</code>里面的<code>images01</code>里面的<code>enemy.png</code>。很明显，<code>02.py</code>所在的文件夹内没有<code>01</code>文件吧。那代码对吗？显然不对吧。</p>
+<p>那怎么办？</p>
+<p>我们如果能到<code>02.py</code>上一级文件夹内是不是就能解决呢？我们试着思考一下，<code>02.py</code>的上一级文件夹内里面有<code>01</code>文件，有没有发现<code>01</code>文件里有<code>images01</code>，是不是找到了<code>enemy.png</code>。那如何表示<code>02.py</code>的上一级文件呢。用<code>../</code> 。刚才我们说了<code>./</code>表示当前文件夹。正确代码如下。也就是<code>02.py</code>上一级文件夹内的<code>01</code>文件里面的<code>images01</code>的<code>enemy.png</code> 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enemy=pygame.image.load(&quot;../01/images01/enemy.png&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>在课堂上，有位同学说，绝对路径这么长，我直接把<code>enemy.png</code>移动到前面不就行了。如图所示：</p>
+<p><img src="/2019/07/02/相对路径和绝对路径-md/%E8%B7%AF%E5%BE%841.png" alt></p>
+<p>那是不是就变成了</p>
+<p><img src="/2019/07/02/相对路径和绝对路径-md/%E8%B7%AF%E5%BE%842.png" alt></p>
+<p>如果这种情况，在<code>02.py</code>中加载<code>enemy.png</code>绝对路径代码是不是就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enemy=pygame.image.load(&quot;C/Users/enemy.png&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>这种情况下是无法写出相对路径的，我们只能到达<code>02.py</code>文件的上一级文件内。只能用绝对路径去加载。</p>
+<p>但是正常情况下是不会出现这样情况的。实际编程的项目中大多数用的是相对路径表示，因为我们每个项目都在不同的文件夹下，比如我们的课堂练习，第一讲的都在<code>01</code>文件夹内，里面有代码文件和<code>images</code>这样的有图片资源文件夹。也就是说某项目的所有代码文件和资源文件(图片，库文件等等)都在同一个项目文件目录下面，这个项目的文件夹内是不会有其他项目的资料的。所以这就导致了，我们经常用相对路径，很少用绝对路径。</p>
+<blockquote>
+<p>更多精彩关注我的微信公众号【南和新教育】</p>
+</blockquote>
+</div><div class="tags"><a href="/tags/Learning-emphasis/">Learning emphasis</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="https://chyuanliu.githu.io"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Kategorien</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/Learning-emphasis/" style="font-size: 15px;">Learning emphasis</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Letzte</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/07/02/相对路径和绝对路径-md/">相对路径和绝对路径</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Blogroll</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">教学沉思录.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
